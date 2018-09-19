@@ -1,0 +1,21 @@
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title></title>
+
+</head>
+
+<body>
+
+<h1>Welcome to Hells's blog!</h1>
+
+</body>
+
+</html>
