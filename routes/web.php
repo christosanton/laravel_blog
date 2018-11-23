@@ -19,8 +19,10 @@ Route::get('/register', 'RegistrationController@create');
 
 Route::post('/register', 'RegistrationController@store');
 
-Route::get('/login', 'SessionsController@create');
-
 Route::post('/login', 'SessionsController@store');
 
+Route::get('/login', ['as' => 'login', 'uses' =>'SessionsController@create']);
+
 Route::get('/logout', 'SessionsController@destroy');
+
+Route::post('/updatelike/{task}', 'TasksController@storelike');

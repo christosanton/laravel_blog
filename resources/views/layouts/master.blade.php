@@ -17,9 +17,14 @@
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
+
+	<!-- Add icon library -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<meta name="csrf-token" content="{{ csrf_token() }}">
+
 	<!-- Custom styles for this template -->
 	<link href="/css/app.css" rel="stylesheet">
-
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -50,7 +55,6 @@
 
 
 	<script>
-		
 		$("#flash-message").fadeOut("1000");
 
 	</script>
@@ -87,5 +91,6 @@
 
 	@include ('layouts.footer')
 
+	<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

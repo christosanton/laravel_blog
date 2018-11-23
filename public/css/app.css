@@ -185,3 +185,11 @@ h6,
   margin-bottom: 0;
 }
 
+#like {
+  cursor: pointer;
+}
+
+#like:hover {
+  color: lightblue;
+}
+

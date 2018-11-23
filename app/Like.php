@@ -2,9 +2,11 @@
 
 namespace App;
 
-class Comment extends Model
+
+class Like extends Model
 {
 
+ 
 	public function task()
 	{
 
@@ -13,6 +15,7 @@ class Comment extends Model
 
 	}
 
+
 	public function user()
 	{
 
@@ -20,5 +23,4 @@ class Comment extends Model
 		return $this->belongsTo(User::class);
 
 	}
-
 }

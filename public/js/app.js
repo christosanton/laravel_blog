@@ -13904,9 +13904,32 @@ window.Vue = __webpack_require__(36);
  */
 
 Vue.component('example-component', __webpack_require__(39));
+window.onload = function () {
+	var app = new Vue({
+		el: '#app'
+	});
+};
 
-var app = new Vue({
-  el: '#app'
+$(function () {
+
+	function increment_like_number(data) {
+		var counter = parseInt($('#like_counter').text());
+		$('#like_counter').text(counter + 1);
+	};
+
+	var post_id = $('#post_container').attr('data-task-id');
+	$("#like").on('click', function () {
+		$.ajax({
+			type: "POST",
+			url: '/updatelike/' + post_id,
+			data: {
+				"_token": $('meta[name="csrf-token"]').attr('content')
+			},
+			success: function success(data) {
+				increment_like_number(data);
+			}
+		});
+	});
 });
 
 /***/ }),

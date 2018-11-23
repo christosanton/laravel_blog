@@ -16,11 +16,31 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+window.onload = function () {
+	const app = new Vue({
+		el: '#app'
+	});
 
-const app = new Vue({
-    el: '#app'
+}
+
+$(function(){ 
+
+	function increment_like_number(data){
+		var counter = parseInt($('#like_counter').text());
+		$('#like_counter').text(counter+1);
+	};
+
+	var post_id = $('#post_container').attr('data-task-id');
+	$("#like").on('click', function(){ 
+		$.ajax({
+			type: "POST",
+			url: '/updatelike/' + post_id,
+			data: {
+				"_token": $('meta[name="csrf-token"]').attr('content'),
+			},
+			success: function(data){increment_like_number(data);}
+		})
+	});
 });
 
 
-
- 

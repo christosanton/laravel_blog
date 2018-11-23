@@ -11,9 +11,16 @@ use App\Comment;
 
 class CommentsController extends Controller
 {
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
+
 
 	public function store(Task $task)
 	{
+
+		
 		$this->validate(request(), ['body' => 'required']);
 
 		
@@ -21,7 +28,7 @@ class CommentsController extends Controller
 		$task->addComment(request('body'), auth()->id());
 
 
-
+		
 		return back();
 
 

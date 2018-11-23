@@ -45,15 +45,19 @@
 	{{ $task->user->name }}
 
 	{{ $task->created_at->toFormattedDateString() }}
-
-
 </p>
 
-{{ $task->body }}
 
 
+<p id="likes"><i class="fa fa-thumbs-up" id="like"></i><span id="like_counter">{{ $counter }}</span></p>
 
+
+<br>
+<div id="post_container" data-task-id={{$task->id}}>
+	{{ $task->body }}
+</div>
 <hr>
+
 
 <div class="comments">
 
@@ -83,8 +87,6 @@
 			{{ $comment->body }}
 
 		</li>
-
-
 
 
 		@endforeach

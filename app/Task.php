@@ -54,6 +54,13 @@ class Task extends Model
 
 	}
 
+	public function likes()
+	{
+
+		return $this->hasMany(Like::class);
+
+	}
+
 }
 
 

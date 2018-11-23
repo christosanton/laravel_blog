@@ -7,16 +7,15 @@ use App\Comment;
 
 use Carbon\Carbon;
 
+use App\Like;
+
 class TasksController extends Controller
 {
 
 
 	public function __construct()
 	{
-
-
 		$this->middleware('auth')->except(['index', 'show']);
-
 	}
 
 
@@ -79,15 +78,24 @@ class TasksController extends Controller
 	public function show(Task $task)
 	{
 
+		$counter = count($task->likes);
 
-
-		return view('singlepost', compact('task'));
+		return view('singlepost', compact('task', 'counter'));
 
 	}
 
 
-	
+	public function storelike(Task $task){
+		// try {
 
+			Like::create([
+				'user_id' => auth()->id(),
+				'task_id' => $task->id
+			]);
+		// } catch (\Illuminate\Database\QueryException $e) {
+		// 	var_dump($e->errorInfo);
+		// }
 
+	}
 
 }
